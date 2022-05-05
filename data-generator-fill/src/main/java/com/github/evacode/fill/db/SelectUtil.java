@@ -4,10 +4,12 @@ import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.MapListHandler;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 /**
@@ -30,6 +32,19 @@ public class SelectUtil {
     public static <T> List<T> queryList(String sql, BeanListHandler<T> rsh, Object... params) throws SQLException {
         Connection conn = DbConnectionUtil.getConnection();
         List<T> list = null;
+        try {
+            list = qr.query(conn, sql, rsh, params);
+        } catch (SQLException e) {
+            LOG.severe("queryList error" + e.getMessage());
+        } finally {
+            DbUtils.closeQuietly(conn);
+        }
+        return list;
+    }
+
+    public static List<Map<String, Object>> queryList(String sql, MapListHandler rsh, Object... params) throws SQLException {
+        Connection conn = DbConnectionUtil.getConnection();
+        List<Map<String, Object>> list = null;
         try {
             list = qr.query(conn, sql, rsh, params);
         } catch (SQLException e) {

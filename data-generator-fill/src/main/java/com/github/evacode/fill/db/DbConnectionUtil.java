@@ -9,7 +9,7 @@ import java.sql.SQLException;
 /**
  * db util
  */
-public class DbConnectionUtil {
+class DbConnectionUtil {
     private static final HikariDataSource ds;
 
     static {
@@ -24,7 +24,7 @@ public class DbConnectionUtil {
      * @return db connection
      * @throws SQLException sql exception
      */
-    public static Connection getConnection() throws SQLException {
+    static Connection getConnection() throws SQLException {
         return ds.getConnection();
     }
 }
