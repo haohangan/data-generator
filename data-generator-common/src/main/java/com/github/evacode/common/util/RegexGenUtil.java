@@ -1,4 +1,4 @@
-package com.github.evacode.common;
+package com.github.evacode.common.util;
 
 import com.github.curiousoddman.rgxgen.RgxGen;
 

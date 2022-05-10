@@ -1,5 +1,6 @@
 package com.github.evacode.common;
 
+import com.github.evacode.common.util.RegexGenUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.junit.Before;
