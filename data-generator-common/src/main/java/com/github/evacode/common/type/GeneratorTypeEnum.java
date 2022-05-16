@@ -1,4 +1,4 @@
-package com.github.evacode.common.generator;
+package com.github.evacode.common.type;
 
 /**
  * 支持生成的数据类型分类
