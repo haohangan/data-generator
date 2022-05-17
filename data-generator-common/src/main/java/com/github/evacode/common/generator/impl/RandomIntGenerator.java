@@ -6,12 +6,19 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomIntGenerator extends IntGenerator {
 
-    public RandomIntGenerator(int max) {
-        super(max);
+    protected final int min;
+
+    protected final int max;
+
+    public RandomIntGenerator(int min, int max) {
+        this.min = min;
+        this.max = max;
     }
 
+
     public RandomIntGenerator() {
-        super(Integer.MAX_VALUE);
+        this.min = 0;
+        this.max = Integer.MAX_VALUE - 1;
     }
 
     @Override
@@ -22,7 +29,7 @@ public class RandomIntGenerator extends IntGenerator {
         ThreadLocalRandom tlr = ThreadLocalRandom.current();
         int[] result = new int[num];
         for (int i = 0; i < num; i++) {
-            result[i] = tlr.nextInt(this.max);
+            result[i] = tlr.nextInt(this.min, this.max + 1);
         }
         return result;
     }

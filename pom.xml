@@ -27,6 +27,7 @@
         <HikariCP.version>4.0.3</HikariCP.version>
         <jackson.version>2.13.2</jackson.version>
         <dbutils.version>1.7</dbutils.version>
+        <gson.version>2.9.0</gson.version>
     </properties>
 
 
@@ -67,6 +68,12 @@
                 <groupId>commons-dbutils</groupId>
                 <artifactId>commons-dbutils</artifactId>
                 <version>${dbutils.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
             </dependency>
 
 

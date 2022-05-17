@@ -3,13 +3,6 @@ package com.github.evacode.common.generator;
 import com.github.evacode.common.type.GeneratorTypeEnum;
 
 public abstract class IntGenerator {
-
-    protected final int max;
-
-    public IntGenerator(int max) {
-        this.max = max;
-    }
-
     /**
      * 生成int数组
      *
