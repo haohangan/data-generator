@@ -1,4 +1,4 @@
-package com.github.evacode.common.generator.impl;
+package com.github.evacode.common.generator.impl.random;
 
 import com.github.evacode.common.generator.IntGenerator;
 
@@ -11,6 +11,8 @@ public class RandomIntGenerator extends IntGenerator {
     protected final int max;
 
     public RandomIntGenerator(int min, int max) {
+        this.checkNum(min);
+        this.checkNum(max);
         this.min = min;
         this.max = max;
     }
@@ -18,18 +20,16 @@ public class RandomIntGenerator extends IntGenerator {
 
     public RandomIntGenerator() {
         this.min = 0;
-        this.max = Integer.MAX_VALUE - 1;
+        this.max = Integer.MAX_VALUE;
     }
 
     @Override
     public int[] generate(int num) {
-        if (num <= 0) {
-            throw new IllegalArgumentException("num 不能为负数");
-        }
+        this.checkNum(num);
         ThreadLocalRandom tlr = ThreadLocalRandom.current();
         int[] result = new int[num];
         for (int i = 0; i < num; i++) {
-            result[i] = tlr.nextInt(this.min, this.max + 1);
+            result[i] = tlr.nextInt(this.min, this.max);
         }
         return result;
     }

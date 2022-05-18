@@ -1,6 +1,6 @@
-package com.github.evacode.common.generator;
+package com.github.evacode.common.generator.impl.random;
 
-import com.github.evacode.common.generator.impl.RandomIntGenerator;
+import com.github.evacode.common.generator.IntGenerator;
 import com.github.evacode.common.util.JsonUtil;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.time.StopWatch;
@@ -35,7 +35,7 @@ public class RandomIntGeneratorTest {
         int[] result = ig.generate(num);
         sw.stop();
         Logger.getGlobal().info("耗时:" + sw.getNanoTime());
-        Logger.getGlobal().info("耗时:" + JsonUtil.toJsonString(result));
+        Logger.getGlobal().info("数据:" + JsonUtil.toJsonString(result));
         Assert.assertEquals(num, ArrayUtils.getLength(result));
     }
 
